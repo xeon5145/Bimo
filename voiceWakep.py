@@ -19,22 +19,28 @@ with sr.Microphone() as source:
     userInput = r.listen(source)
     keyword = r.recognize_google(userInput).title()
 
-    # cases for keyword deeksha
-    if keyword == 'Diksha':
-        wakeUpWord = 'Diksha'
-    elif keyword == 'Deeksha':
-        wakeUpWord = 'Diksha'
+    # Initialize the wakeUpWord variable
+    wakeUpWord = None
 
-    if keyword == 'Diksha':
+    # cases for keyword deeksha
+    if keyword == 'Bimo':
+        wakeUpWord = 'Bimo'
+    elif keyword == 'Bemo':
+        wakeUpWord = 'Bimo'
+    elif keyword == 'Demo':
+        wakeUpWord = 'Bimo'
+
+    if wakeUpWord == 'Bimo':
         text = r.recognize_google(userInput)
         print(text)
-        engine.say("Yes,Baby.")
+        engine.say("Hi,There.")
         engine.runAndWait()
     else:
         text = r.recognize_google(userInput)
         print(text)
         engine.say("I didn't get that.")
         engine.runAndWait()
+
     # making voice activation function
     # try:
     #     keyword = r.recognize_google(userInput)
